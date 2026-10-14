@@ -281,3 +281,31 @@ endpoints, worker, roadmap de mejoras).
 - [ ] La demo de 1 minuto funciona de extremo a extremo sin errores.
 - [ ] `typecheck`, `lint`, `format:check` y `test` en verde; `git log` muestra
       commits convencionales por dominio.
+
+## Apéndice — Mejoras futuras (fuera del flujo principal)
+
+Opcionales, post-proyecto. No bloquean ninguna fase ni forman parte del flujo.
+Cada mejora indica su prerrequisito.
+
+- [ ] **Refresh tokens + revocación** (prerrequisito: Fase 9). Access corto +
+      refresh rotado con lista de revocación (logout real). Criterio: refresh
+      reutilizado → `401` y sesión cerrada.
+- [ ] **Rate limiting** (prerrequisito: Fase 9). `express-rate-limit` en
+      `request-code`/`verify-code` por IP+email. Criterio: ráfaga → `429`.
+- [ ] **Listado avanzado** (prerrequisito: Fase 13). Paginación, filtros por
+      prioridad/frecuencia y búsqueda en `GET /api/reminders`. Criterio:
+      `?page&limit&priority` responden paginado.
+- [ ] **Zona horaria y no molestar** (prerrequisito: Fase 15). Zona por usuario
+      y ventana silenciosa. Criterio: vencido en ventana silenciosa se pospone.
+- [ ] **Cola en vez de envío síncrono** (prerrequisito: Fase 15). SQS/BullMQ con
+      reintentos y backoff. Criterio: fallo SMTP reintenta y queda en DLQ tras N.
+- [ ] **Lock distribuido del worker** (prerrequisito: Fase 15). `FOR UPDATE SKIP
+    LOCKED` o lease para réplicas. Criterio: 2 workers no duplican envíos.
+- [ ] **OpenAPI/Swagger** (prerrequisito: Fase 13). Docs generadas desde Zod en
+      `/api-docs`. Criterio: spec válida y probada con un cliente generado.
+- [ ] **CI en GitHub Actions** (prerrequisito: Fase 16). `typecheck+lint+test`
+      en cada push. Criterio: pipeline verde/bloqueante en `main`.
+- [ ] **Frontend** (prerrequisito: Fase 17). Web/móvil consumiendo la API.
+      Criterio: flujo login OTP + CRUD desde la UI.
+- [ ] **Observabilidad** (prerrequisito: Fase 17). Métricas, tracing y alertas
+      del cron. Criterio: fallo del worker genera alerta accionable.
