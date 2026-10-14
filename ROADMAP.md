@@ -199,8 +199,7 @@ campo) y `reminder.dto.ts` (`CreateReminderDTO`, `UpdateReminderDTO`,
 **Criterios de aceptación**:
 
 - [ ] `note` de 281 caracteres → `400`; update vacío → `400`.
-- [ ] `toReminderResponse` incluye `id, note, nextReminderAt, frequency, priority,
-    status, createdAt` y **excluye** `userId`.
+- [ ] `toReminderResponse` incluye `id, note, nextReminderAt, frequency, priority, status, createdAt` y **excluye** `userId`.
 
 ## Fase 12 — Reminders: service
 
