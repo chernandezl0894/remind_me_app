@@ -299,8 +299,7 @@ Cada mejora indica su prerrequisito.
       y ventana silenciosa. Criterio: vencido en ventana silenciosa se pospone.
 - [ ] **Cola en vez de envío síncrono** (prerrequisito: Fase 15). SQS/BullMQ con
       reintentos y backoff. Criterio: fallo SMTP reintenta y queda en DLQ tras N.
-- [ ] **Lock distribuido del worker** (prerrequisito: Fase 15). `FOR UPDATE SKIP
-    LOCKED` o lease para réplicas. Criterio: 2 workers no duplican envíos.
+- [ ] **Lock distribuido del worker** (prerrequisito: Fase 15). `FOR UPDATE SKIP LOCKED` o lease para réplicas. Criterio: 2 workers no duplican envíos.
 - [ ] **OpenAPI/Swagger** (prerrequisito: Fase 13). Docs generadas desde Zod en
       `/api-docs`. Criterio: spec válida y probada con un cliente generado.
 - [ ] **CI en GitHub Actions** (prerrequisito: Fase 16). `typecheck+lint+test`
